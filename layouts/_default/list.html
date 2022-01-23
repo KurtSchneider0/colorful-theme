@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1 style="font-size: 2.5rem">{{ .Title }}</h1>
+{{ range .Pages.ByPublishDate.Reverse }}
+<p>
+    <h3><a class="title link-info" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{ partial "metadata.html" . }}
+    <a class="summary link-info" href="{{ .RelPermalink }}">
+        <p>{{ .Summary }}</p>
+    </a>
+</p>
+{{ end }}
+{{ end }}
